@@ -1,6 +1,6 @@
 package org.applicationsmart.services;
 
-import org.springframework.stereotype.Service;
+import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
 
 
 public interface OrderItemService {
@@ -8,4 +8,6 @@ public interface OrderItemService {
     void editOrder();
     void deleteOrder();
     void SearchOrder();
+
+    int placeOrder(OrderItemDetailsRequest orderDetailsRequest);
 }

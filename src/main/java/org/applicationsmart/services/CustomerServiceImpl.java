@@ -15,7 +15,7 @@ import static org.applicationsmart.utils.Mapper.map;
 public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerRepository customerRepository;
-    private LoginRequest loginRequest;
+    LoginRequest loginRequest;
     @Override
     public void editCustomer() {
 
@@ -45,10 +45,11 @@ public class CustomerServiceImpl implements CustomerService{
         return foundCustomer != null;
     }
     @Override
-    public void login(RegisterRequest registerRequest) {
+    public void login(LoginRequest loginRequest) {
         Customer foundCustomer = customerRepository.findCustomerByUsername(loginRequest.getUsername());
         if(!userExist(loginRequest.getUsername())) throw new InvalidDetailsException();
         if(!foundCustomer.getPassword().equals(loginRequest.getPassword())) throw new InvalidDetailsException();
+        foundCustomer.setLocked(false);
         customerRepository.save(foundCustomer);
     }
 }
