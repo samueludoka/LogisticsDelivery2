@@ -1,12 +1,17 @@
 package org.applicationsmart.services;
 
 import lombok.Data;
+import org.applicationsmart.data.models.OrderItem;
+import org.applicationsmart.data.repository.OrderItemRepository;
 import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 @Data
 
 @Service
 public class OrderItemServiceImpl implements OrderItemService{
+    @Autowired
+    private OrderItemRepository orderItemRepository;
     private String[] orderType = new String[5];
     private int size;
     @Override
@@ -30,8 +35,13 @@ public class OrderItemServiceImpl implements OrderItemService{
     }
 
     @Override
-    public int placeOrder(OrderItemDetailsRequest orderDetailsRequest) {
+    public void placeOrder(OrderItemDetailsRequest orderDetailsRequest,String customerId) {
+        OrderItem orderItem = new OrderItem();
+        orderItem.setType(orderDetailsRequest.getType());
+        orderItem.setNumber(orderDetailsRequest.getNumber());
+        orderItem.setDescription(orderDetailsRequest.getDescription());
+        orderItem.setCustomerId(customerId);
+        orderItemRepository.save(orderItem);
 
-        return size++;
     }
 }

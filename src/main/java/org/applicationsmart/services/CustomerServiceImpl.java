@@ -3,6 +3,7 @@ package org.applicationsmart.services;
 import org.applicationsmart.data.models.Customer;
 import org.applicationsmart.data.repository.CustomerRepository;
 import org.applicationsmart.dtos.request.LoginRequest;
+import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
 import org.applicationsmart.dtos.request.RegisterRequest;
 import org.applicationsmart.exception.InvalidDetailsException;
 import org.applicationsmart.exception.UserExistException;
@@ -15,7 +16,10 @@ import static org.applicationsmart.utils.Mapper.map;
 public class CustomerServiceImpl implements CustomerService{
     @Autowired
     private CustomerRepository customerRepository;
-    LoginRequest loginRequest;
+    @Autowired
+    private OrderItemService orderItemService;
+
+//    LoginRequest loginRequest;
     @Override
     public void editCustomer() {
 
@@ -51,5 +55,22 @@ public class CustomerServiceImpl implements CustomerService{
         if(!foundCustomer.getPassword().equals(loginRequest.getPassword())) throw new InvalidDetailsException();
         foundCustomer.setLocked(false);
         customerRepository.save(foundCustomer);
+    }
+
+    @Override
+    public void placeOrder(OrderItemDetailsRequest orderItemDetailsRequest) {
+        Customer customer = customerRepository.findCustomerByUsername(orderItemDetailsRequest.getCustomerName());
+        if(customer!= null){
+            orderItemService.placeOrder(orderItemDetailsRequest, customer.getId());
+        }
+
+    }
+
+    @Override
+    public void placeOrderForAFriend(OrderItemDetailsRequest orderItemDetailsRequest) {
+        Customer customer = customerRepository.findCustomerByUsername(orderItemDetailsRequest.getCustomerName());
+        if(customer!= null){
+            orderItemService.placeOrder(orderItemDetailsRequest, customer.getId());
+        }
     }
 }

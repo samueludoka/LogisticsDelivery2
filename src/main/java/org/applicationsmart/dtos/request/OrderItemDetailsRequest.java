@@ -7,7 +7,8 @@ public class OrderItemDetailsRequest {
     private String type;
     private String description;
     private String number;
-    private String customerId;
+    private String customerName;
+
 
 
 }

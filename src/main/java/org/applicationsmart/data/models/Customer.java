@@ -8,10 +8,10 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Customer {
     private String id;
-//    private String name;
-//    private String number;
-//    private String email;
-//    private String address;
+    private String name;
+    private String number;
+    private String email;
+    private String address;
     private String username;
     private String password;
     private boolean isLocked = true;
