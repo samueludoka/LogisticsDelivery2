@@ -63,7 +63,6 @@ public class CustomerServiceImpl implements CustomerService{
         if(customer!= null){
             orderItemService.placeOrder(orderItemDetailsRequest, customer.getId());
         }
-
     }
 
     @Override

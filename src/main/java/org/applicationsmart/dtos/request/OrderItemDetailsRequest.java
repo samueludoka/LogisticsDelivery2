@@ -6,7 +6,7 @@ import lombok.Data;
 public class OrderItemDetailsRequest {
     private String type;
     private String description;
-    private String number;
+    private String productNumber;
     private String customerName;
 
 

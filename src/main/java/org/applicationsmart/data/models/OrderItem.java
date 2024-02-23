@@ -13,7 +13,7 @@ public class OrderItem {
     private String id;
     private String type;
     private String description;
-    private String number;
+    private String productNumber;
     private String customerId;
 
 

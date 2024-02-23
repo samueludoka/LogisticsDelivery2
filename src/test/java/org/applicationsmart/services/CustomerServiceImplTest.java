@@ -57,6 +57,7 @@ class CustomerServiceImplTest {
         customerService.register(registerRequest);
         loginRequest.setUsername("azubuike119");
         loginRequest.setPassword("azubuike119");
+        customerService.login(loginRequest);
         assertEquals(1,customerRepository.count());
     }
     @Test
@@ -71,6 +72,7 @@ class CustomerServiceImplTest {
         OrderItemDetailsRequest orderDetailsRequest = new OrderItemDetailsRequest();
         orderDetailsRequest.setType("Edible");
         orderDetailsRequest.setDescription("Soft Drinks");
+        orderDetailsRequest.setProductNumber("123gh");
         orderDetailsRequest.setCustomerName("azubuike119");
         customerService.placeOrder(orderDetailsRequest);
         assertEquals(1,orderItemRepository.count());
@@ -88,10 +90,13 @@ class CustomerServiceImplTest {
         OrderItemDetailsRequest orderDetailsRequest = new OrderItemDetailsRequest();
         orderDetailsRequest.setType("Edible");
         orderDetailsRequest.setDescription("Soft Drinks");
+        orderDetailsRequest.setProductNumber("123gh");
         orderDetailsRequest.setCustomerName("azubuike119");
         customerService.placeOrder(orderDetailsRequest);
         orderDetailsRequest.setType("clothing");
         orderDetailsRequest.setDescription("wrist watch");
+        orderDetailsRequest.setProductNumber("123gh");
+        orderDetailsRequest.setCustomerName("azubuike119");
         customerService.placeOrder(orderDetailsRequest);
         assertEquals(2,orderItemRepository.count());
     }
