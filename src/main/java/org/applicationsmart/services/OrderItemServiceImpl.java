@@ -6,7 +6,7 @@ import org.applicationsmart.data.repository.OrderItemRepository;
 import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-@Data
+
 
 @Service
 public class OrderItemServiceImpl implements OrderItemService{
