@@ -2,10 +2,7 @@ package org.applicationsmart.services;
 
 import org.applicationsmart.data.repository.CustomerRepository;
 import org.applicationsmart.data.repository.OrderItemRepository;
-import org.applicationsmart.dtos.request.ExtendedUserRequest;
-import org.applicationsmart.dtos.request.LoginRequest;
-import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
-import org.applicationsmart.dtos.request.RegisterRequest;
+import org.applicationsmart.dtos.request.*;
 import org.applicationsmart.exception.InvalidDetailsException;
 import org.applicationsmart.exception.UserExistException;
 import org.junit.jupiter.api.BeforeEach;
@@ -24,6 +21,8 @@ class CustomerServiceImplTest {
     private CustomerRepository customerRepository;
     @Autowired
     OrderItemRepository orderItemRepository;
+    @Autowired
+    EmailService emailService;
 
     @BeforeEach
     public void doThisAfterEachTest(){
@@ -124,5 +123,17 @@ class CustomerServiceImplTest {
         extendedUserRequest.setCountry("Nigeria");
         customerService.placeOrderForAFriend(orderDetailsRequest);
         assertEquals(2, orderItemRepository.count());
+    }
+    @Test
+    public void testSendEmail(){
+        SendMessageRequest request = new SendMessageRequest();
+        request.setFrom("shedracsamuel4@gmail.com");
+        request.setTo("ikemdinachialfred@gmail.com");
+        request.setSubject("First Email From Ur App");
+        request.setText("this is the shitty first email u will be getting from ur app, do have a nice day");
+        request.setSend("message");
+        emailService.sendSimpleMessage(request);
+        assertNotNull(request);
+
     }
 }
