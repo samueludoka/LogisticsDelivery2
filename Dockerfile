@@ -3,5 +3,5 @@ COPY . .
 RUN mvn -B clean  package - DskipTests
 FROM openjdk:21
 COPY --from=build ./target/*.jar LogisticsDelivery.jar
-EXPOSE PORT = 8080
+EXPOSE 8080
 ENTRYPOINT ["java","-jar","app.jar"]
