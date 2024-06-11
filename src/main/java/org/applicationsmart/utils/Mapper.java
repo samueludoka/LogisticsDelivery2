@@ -1,6 +1,6 @@
 package org.applicationsmart.utils;
 
-import org.applicationsmart.data.models.Customer;
+import org.applicationsmart.models.Customer;
 import org.applicationsmart.dtos.request.RegisterRequest;
 
 public class Mapper {

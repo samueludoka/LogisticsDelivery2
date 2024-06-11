@@ -1,7 +1,7 @@
 package org.applicationsmart.services;
 
-import org.applicationsmart.data.models.Customer;
-import org.applicationsmart.data.repository.CustomerRepository;
+import org.applicationsmart.models.Customer;
+import org.applicationsmart.repository.CustomerRepository;
 import org.applicationsmart.dtos.request.LoginRequest;
 import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
 import org.applicationsmart.dtos.request.RegisterRequest;
@@ -45,7 +45,7 @@ public class CustomerServiceImpl implements CustomerService{
 
 
     private boolean userExist(String username) {
-        Customer foundCustomer = customerRepository.findCustomerByUsername(username);
+        Customer foundCustomer = customerRepository.findCustomerByUsername();
         return foundCustomer != null;
     }
     @Override

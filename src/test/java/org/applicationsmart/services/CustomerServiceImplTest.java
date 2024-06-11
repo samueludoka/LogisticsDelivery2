@@ -1,7 +1,7 @@
 package org.applicationsmart.services;
 
-import org.applicationsmart.data.repository.CustomerRepository;
-import org.applicationsmart.data.repository.OrderItemRepository;
+import org.applicationsmart.repository.CustomerRepository;
+import org.applicationsmart.repository.OrderItemRepository;
 import org.applicationsmart.dtos.request.*;
 import org.applicationsmart.exception.InvalidDetailsException;
 import org.applicationsmart.exception.UserExistException;
@@ -128,7 +128,7 @@ class CustomerServiceImplTest {
     public void testSendEmail(){
         SendMessageRequest request = new SendMessageRequest();
         request.setFrom("shedracsamuel4@gmail.com");
-        request.setTo("ikemdinachialfred@gmail.com");
+        request.setTo("joy828545@gmail.com");
         request.setSubject("First Email From Ur App");
         request.setText("this is the shitty first email u will be getting from ur app, do have a nice day");
         request.setSend("message");

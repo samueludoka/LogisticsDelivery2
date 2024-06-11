@@ -1,7 +1,6 @@
-package org.applicationsmart.data.repository;
+package org.applicationsmart.repository;
 
-import org.applicationsmart.data.models.Customer;
-import org.applicationsmart.dtos.request.RegisterRequest;
+import org.applicationsmart.models.Customer;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface CustomerRepository extends MongoRepository <Customer, String > {

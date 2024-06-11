@@ -1,6 +1,5 @@
-package org.applicationsmart.data.repository;
+package org.applicationsmart.repository;
 
-import org.applicationsmart.data.models.ProductUpdateClass;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
 public interface ProductUpdateRepository extends MongoRepository<ProductUpdateClass, String> {

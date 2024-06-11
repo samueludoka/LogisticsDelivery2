@@ -1,8 +1,7 @@
 package org.applicationsmart.services;
 
-import lombok.Data;
-import org.applicationsmart.data.models.OrderItem;
-import org.applicationsmart.data.repository.OrderItemRepository;
+import org.applicationsmart.models.OrderItem;
+import org.applicationsmart.repository.OrderItemRepository;
 import org.applicationsmart.dtos.request.OrderItemDetailsRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
