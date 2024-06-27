@@ -1,9 +1,7 @@
 package org.applicationsmart.repository;
 
 import org.applicationsmart.models.Customer;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface CustomerRepository extends MongoRepository <Customer, String > {
-    Customer findCustomerByUsername(String username);
-
+public interface CustomerRepository extends JpaRepository<Customer, Long> {
 }

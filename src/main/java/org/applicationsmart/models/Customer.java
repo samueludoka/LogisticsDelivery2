@@ -1,22 +1,26 @@
 package org.applicationsmart.models;
+import jakarta.persistence.*;
 
+import jakarta.persistence.Entity;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.data.annotation.Id;
+
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
+@Entity
 @Data
-@Getter
-@Setter
 public class Customer {
     @Id
-    @GeneratedValue(strategy = IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String address;
-    private String Location;
+    private Location location;
     private boolean isLocked = true;
+
+
 }
