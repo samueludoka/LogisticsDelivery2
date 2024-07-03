@@ -1,10 +1,12 @@
 package org.applicationsmart.models;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import lombok.Getter;
 import lombok.Setter;
+
+import java.util.List;
 
 import static jakarta.persistence.GenerationType.IDENTITY;
 
@@ -15,7 +17,8 @@ public class Store {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private String storeId;
-    private Long VendorId;
-    private Long productId;
+    @ManyToOne
+    private Vendor vendor;
+    @OneToMany
+    private List<Product> product;
 }
